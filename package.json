@@ -3,7 +3,7 @@
     "title": "Cordova",
     "description": "Add/Build/Run on Android and iOS platforms",
     "version": "0.0.1",
-    "author": "Jeremie Guichot <jguichot@gmail.com>",
+    "author": "ASI Informatique <jguichot@asi-informatique.fr>",
     "license": "MIT",
     "engines": {
         "brackets": ">=0.38.0"
