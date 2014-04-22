@@ -1,7 +1,7 @@
 {
     "name": "asi.cordova",
     "title": "Cordova",
-    "description": "Add/Build/Run on Android and iOS platforms",
+    "description": " Cordova plugin for Brackets editor",
     "version": "0.0.1",
     "author": "ASI Informatique <jguichot@asi-informatique.fr>",
     "license": "MIT",
