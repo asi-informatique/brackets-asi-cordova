@@ -1,0 +1,53 @@
+/* Icon Cordova */
+#toolbar-cordova {
+    content:"";
+    background: url("../images/logo-cordova.png") 0 0 no-repeat;
+}
+#toolbar-cordova.process { background-position: 0 -24px; }
+#toolbar-cordova.open { background-position: 0 -48px; }
+
+/* Panel Cordova */
+#panel-cordova { background-color: #fff; margin: 0; padding: 0 10px; color: #000; }
+    #panel-cordova .header { border-bottom: 1px solid #000; height: 35px; line-height: 35px; }
+        #panel-cordova .header h3 { float: left; font-weight: bold; margin: 0; padding: 0; }
+        #panel-cordova .header > a { float: right; color: #fff; padding: 3px 8px; background-color: #3B4853; line-height: 20px; margin: 5px 0 0 8px; }
+        #panel-cordova .header > a:hover { text-decoration: none; background-color: #535d6a; }
+        #panel-cordova .header > .loader {
+            display: none;
+            float: left; 
+            margin: 11px 0 0 5px;
+            width: 16px;
+            height: 16px;
+            background: url("../images/loader.gif") 0 0 no-repeat;
+        }
+    #panel-cordova ul.device { border-bottom: 1px solid #ccc; list-style-type: none; margin: 0; padding: 5px; }
+        #panel-cordova ul.device:hover { background-color: #f5f5f5; }
+        #panel-cordova ul.device:last-child { border: none; }
+            #panel-cordova ul.device li { display: inline-block; margin-left: 8px; height: 25px; line-height: 25px; }
+            #panel-cordova ul.device li:first-child { margin-left: 0; }
+                #panel-cordova ul.device li > a { color: #fff; padding: 3px 8px; background-color: #4CC2E4; line-height: 20px; }
+                #panel-cordova ul.device li > a:hover { text-decoration: none; background-color: #4CD6FC; }
+                #panel-cordova ul.device li > a.remove { background-color: #D15959; }
+                #panel-cordova ul.device li > a.remove:hover { background-color: #e66f6f; }
+
+#panel-cordova .device .logo { width: 80px; height: 25px; padding-left: 30px; }
+#panel-cordova .device .logo.android { background: url("../images/logo-android-h25.png") 0 0 no-repeat; }
+#panel-cordova .device .logo.ios { background: url("../images/logo-ios-h25.png") 0 0 no-repeat; }
+
+/* Modal */
+.modal .loader {
+    display: none;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+}
+    .modal .loader .gif {
+        position: absolute;
+        background: url('../images/modal-loader.gif') 0 0 no-repeat;
+        width: 220px;
+        height: 19px;
+        top: 50%; left: 50%;
+        margin-top: -10px;
+        margin-left: -110px;
+    }

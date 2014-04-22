@@ -1,0 +1,49 @@
+<div class="dialog-cordova-new-project template modal">
+    <div class="loader"><div class="gif"></div></div>
+    <div class="modal-header">
+        <h1 class="dialog-title">Cordova - Create New Project</h1>
+    </div>
+    <div class="modal-body">
+        <div class="dialog-message">
+            <form>
+                <div class="control-group">
+                    <label class="control-label" for="cordova-new-name">Name</label>
+                    <div class="controls">
+                        <input id="cordova-new-name" type="text" placeholder="ProjectName">
+                        <span class="help-inline hide">Please correct the error (no empty)</span>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label" for="cordova-new-id">ID</label>
+                    <div class="controls">
+                        <input id="cordova-new-id" type="text" placeholder="com.example.project">
+                        <span class="help-inline hide">Please correct the error (no empty)</span>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label" for="cordova-new-folder">Folder Name</label>
+                    <div class="controls">
+                        <input id="cordova-new-folder" type="text" placeholder="projectname">
+                        <span class="help-inline hide">Please correct the error (no empty)</span>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label" for="cordova-new-dest">Destination</label>
+                    <div class="controls">
+                        <input id="cordova-new-dest" type="text">
+                        <span class="help-inline hide">Please correct the error (no empty)</span>
+                    </div>
+                </div>
+                
+                <a id="cordova-new-dest-change" class="dialog-button btn">Change...</a>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="dialog-button btn">Cancel</button>
+        <button class="dialog-button btn primary" id="cordova-new-submit">Ok</button>
+    </div>
+</div>

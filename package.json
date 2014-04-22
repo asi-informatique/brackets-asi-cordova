@@ -1,0 +1,11 @@
+{
+    "name": "asi.cordova",
+    "title": "Cordova",
+    "description": "Add/Build/Run on Android and iOS platforms",
+    "version": "0.0.1",
+    "author": "Jeremie Guichot <jguichot@gmail.com>",
+    "license": "MIT",
+    "engines": {
+        "brackets": ">=0.38.0"
+    }
+}
