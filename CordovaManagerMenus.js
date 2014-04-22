@@ -24,29 +24,37 @@ define(function (require, exports, module) {
             'id': 'asi.cordova.menu.new-project',
             'action': function () { self.cordovaManager.dialogNewProject.show(); }
         }, {
-            'title': 'Android - Add Platform',
-            'id': 'asi.cordova.menu.android-add-platform',
-            'action': function () { self.cordovaManager.runCommand(Constants.CMD_ANDROID_ADD); }
+            'title': 'Android - Run',
+            'id': 'asi.cordova.menu.android-run',
+            'action': function () { self.cordovaManager.runCommand(Constants.CMD_ANDROID_RUN); }
         }, {
             'title': 'Android - Build',
             'id': 'asi.cordova.menu.android-build',
             'action': function () { self.cordovaManager.runCommand(Constants.CMD_ANDROID_BUILD); }
         }, {
-            'title': 'Android - Run',
-            'id': 'asi.cordova.menu.android-run',
-            'action': function () { self.cordovaManager.runCommand(Constants.CMD_ANDROID_RUN); }
+            'title': 'Android - Add Platform',
+            'id': 'asi.cordova.menu.android-add-platform',
+            'action': function () { self.cordovaManager.runCommand(Constants.CMD_ANDROID_ADD); }
         }, {
-            'title': 'iOS - Add Platform',
-            'id': 'asi.cordova.menu.ios-add-platform',
-            'action': function () { self.cordovaManager.runCommand(Constants.CMD_IOS_ADD); }
+            'title': 'Android - Remove Platform',
+            'id': 'asi.cordova.menu.android-remove-platform',
+            'action': function () { self.cordovaManager.runCommand(Constants.CMD_ANDROID_REMOVE); }
+        }, {
+            'title': 'iOS - Run',
+            'id': 'asi.cordova.menu.ios-run',
+            'action': function () { self.cordovaManager.runCommand(Constants.CMD_IOS_RUN); }
         }, {
             'title': 'iOS - Build',
             'id': 'asi.cordova.menu.ios-build',
             'action': function () { self.cordovaManager.runCommand(Constants.CMD_IOS_BUILD); }
         }, {
-            'title': 'iOS - Run',
-            'id': 'asi.cordova.menu.ios-run',
-            'action': function () { self.cordovaManager.runCommand(Constants.CMD_IOS_RUN); }
+            'title': 'iOS - Add Platform',
+            'id': 'asi.cordova.menu.ios-add-platform',
+            'action': function () { self.cordovaManager.runCommand(Constants.CMD_IOS_ADD); }
+        }, {
+            'title': 'iOS - Remove Platform',
+            'id': 'asi.cordova.menu.ios-remove-platform',
+            'action': function () { self.cordovaManager.runCommand(Constants.CMD_IOS_REMOVE); }
         }, {
             'title': 'Plugins',
             'id': 'asi.cordova.menu.plugins',
@@ -63,7 +71,7 @@ define(function (require, exports, module) {
             CommandManager.register(this.title, this.id, this.action);
             menu.addMenuItem(this.id);
             
-            if ($.inArray(this.id, ['asi.cordova.menu.new-project', 'asi.cordova.menu.android-run', 'asi.cordova.menu.ios-run']) >= 0) {
+            if ($.inArray(this.id, ['asi.cordova.menu.new-project', 'asi.cordova.menu.android-remove-platform', 'asi.cordova.menu.ios-remove-platform']) >= 0) {
                 menu.addMenuDivider();
             }
         });
