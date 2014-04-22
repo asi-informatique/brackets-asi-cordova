@@ -2,7 +2,7 @@
     "name": "asi.cordova",
     "title": "Cordova",
     "description": " Cordova plugin for Brackets editor",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "author": "ASI Informatique <jguichot@asi-informatique.fr>",
     "license": "MIT",
     "engines": {
