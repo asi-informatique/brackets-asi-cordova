@@ -35,6 +35,8 @@
 #panel-cordova .device .logo.ios { background: url("../images/logo-ios-h25.png") 0 0 no-repeat; }
 
 /* Modal */
+.modal .modal-header .info { text-align: right; line-height: 15px; margin: 0; padding: 0; }
+
 .modal .loader {
     display: none;
     position: absolute;
@@ -51,3 +53,7 @@
         margin-top: -10px;
         margin-left: -110px;
     }
+
+/* dialog-cordova-plugins */
+.dialog-cordova-plugins .remove { color: #D15959; }
+.dialog-cordova-plugins .remove:hover { color: #e66f6f; }

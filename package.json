@@ -1,8 +1,8 @@
 {
     "name": "asi.cordova",
     "title": "Cordova",
-    "description": " Cordova plugin for Brackets editor",
-    "version": "0.1.0",
+    "description": " Cordova plugin for Brackets editor. Required ios-deploy (sudo npm install -g ios-deploy) and ios-sim (sudo npm install -g ios-sim).",
+    "version": "0.1.1",
     "author": "ASI Informatique <jguichot@asi-informatique.fr>",
     "license": "MIT",
     "engines": {

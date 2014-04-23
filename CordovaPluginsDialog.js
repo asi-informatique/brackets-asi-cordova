@@ -14,7 +14,9 @@ define(function (require, exports, module) {
         
         var self = this;
         this.cordovaManager = cordovaManager;
+        this.plugins = JSON.parse(require("text!plugins.json"));
         this.$dialog = $(require("text!html/dialog-plugins.html"));
+        this.$total = this.$dialog.find('.total');
         this.$loader = this.$dialog.find('.loader');
         this.$inputAdd = this.$dialog.find('#cordova-plugins-add');
         this.$inputRemove = this.$dialog.find('#cordova-plugins-remove');
@@ -44,7 +46,7 @@ define(function (require, exports, module) {
             var cmd = Constants.CMD_PLUGIN_ADD + ' ' + self.$inputAdd.val();
             var promise = self.cordovaManager.runCommand(cmd);
             promise.done(function () {
-                this.$inputAdd.val('');
+                self.$inputAdd.val('');
                 self.loadPlugins();
             });
         });
@@ -59,7 +61,7 @@ define(function (require, exports, module) {
             var cmd = Constants.CMD_PLUGIN_REMOVE + ' ' + self.$inputRemove.val();
             var promise = self.cordovaManager.runCommand(cmd);
             promise.done(function () {
-                this.$inputRemove.val('');
+                self.$inputRemove.val('');
                 self.loadPlugins();
             });
         });
@@ -71,6 +73,19 @@ define(function (require, exports, module) {
             
             var pluginName = $(this).parents('tr').find('td').first().text();
             var cmd = Constants.CMD_PLUGIN_REMOVE + ' ' + pluginName;
+            var promise = self.cordovaManager.runCommand(cmd);
+            promise.done(function () {
+                self.loadPlugins();
+            });
+        });
+        
+        // Install a Plugin
+        this.$tablePlugins.on('click', '.install', function (e) {
+            e.preventDefault();
+            self.$loader.show();
+            
+            var pluginName = $(this).parents('tr').find('td').first().text();
+            var cmd = Constants.CMD_PLUGIN_ADD + ' ' + pluginName;
             var promise = self.cordovaManager.runCommand(cmd);
             promise.done(function () {
                 self.loadPlugins();
@@ -91,30 +106,44 @@ define(function (require, exports, module) {
         var self = this;
         var promise = self.cordovaManager.runCommand(Constants.CMD_PLUGIN_LIST);
         promise.done(function (data) {
-            console.log('results');
 
             var list = data.replace(/'/g, "\"").replace(/(\r\n|\n|\r)/gm, "");
+            var pluginsInstalled = null;
+            var html = '';
 
+            // Get plugins installed
             try {
 
                 list = list.substring(0, list.indexOf(']') + 1);
-                var plugins = JSON.parse(list);
-                var html = '';
-                $.each(plugins, function () {
+                pluginsInstalled = JSON.parse(list);
+                
+                $.each(pluginsInstalled, function () {
                     html += '<tr>';
                     html    += '<td>' + this + '</td>';
                     html    += '<td><a href="#" class="remove">Remove</a></td>';
                     html += '</tr>';
                 });
-                self.$tablePlugins.html(html);
-
+                self.$total.html(pluginsInstalled.length);
+                
             } catch (e) {
-
+                
                 // 0 plugins
                 console.log(e);
-                self.$tablePlugins.html('<tr><td>0 plugins</td><td></td></tr>');
-                self.$loader.hide();
+                self.$total.html('0');
             }
+                        
+            // Default plugins
+            $.each(self.plugins, function () {
+                
+                if (pluginsInstalled === null || $.inArray(this, pluginsInstalled) === -1) {
+                    html += '<tr>';
+                    html    += '<td>' + this + '</td>';
+                    html    += '<td><a href="#" class="install">Install</a></td>';
+                    html += '</tr>';
+                }
+            });
+            
+            self.$tablePlugins.html(html);
 
             self.$loader.hide();
         });

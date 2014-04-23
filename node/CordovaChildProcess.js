@@ -20,7 +20,7 @@
             output = "";
         
         //proc = spawn(cordova, acmd, {cwd: directoryPath});
-        proc = exec(command, {cwd: directoryPath});
+        proc = exec("export PATH=/usr/local/bin:$PATH &&" + command, {cwd: directoryPath});
         proc.stdout.on("data", function (data) {
             output += data;
         });
